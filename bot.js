@@ -2,6 +2,7 @@
 const Twit = require('twit');
 const config = require('./config');
 const T = new Twit(config);
+require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI);
 
