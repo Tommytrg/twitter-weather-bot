@@ -1,9 +1,21 @@
 {
   "name": "twitter-weahter-bot",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "twitter weather bot",
   "scripts": {
     "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tommytrg/twitter-weather-bot.git"
+  },
+  "author": "tommytrg <tomastrg22@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Tommytrg/twitter-weather-bot/issues"
+  },
+  "homepage": "https://github.com/Tommytrg/twitter-weather-bot#readme"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
