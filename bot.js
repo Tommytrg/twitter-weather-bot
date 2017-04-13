@@ -24,6 +24,7 @@ console.log(err)
 
 const getWeatherTweet = () => {
   weather;
+  
   weatherInfoModel.find({},(err,info)=>{
     if(err){
       throw new Error('error getting data from db');
