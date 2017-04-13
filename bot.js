@@ -1,36 +1,20 @@
 /*jshint esversion:6*/
 const Twit = require('twit');
 const config = require('./config');
+console.log(config)
 const T = new Twit(config);
+const weather = require('./controllers/weather-info.controller');
+const weatherInfoModel = require('./models/weatherInfo.model');
+
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI);
-
-
-const params = {
-  q: 'rainbow',
-  count: 2
-};
-
-const gotData = (err, data, response) => {
-  if (err) {
-    throw new Error('ERROR getting data in gotData');
-  } else {
-    const tweets = data.statuses;
-    tweets.map((tweet, index) => {
-      console.log(index + ' ' +tweet.text);
-
-    });
-  }
-};
 
 //T.get('search/tweets', params, gotData);
 
-const tweet = {
-  status: 'Hello World'
-};
+
 
 const tweeted = (err, data, response) => {
+console.log(err)
   if(err){
     throw new Error('ERROR tweeting in tweeted');
   }else{
@@ -38,4 +22,20 @@ const tweeted = (err, data, response) => {
   }
 };
 
-T.post('statuses/update', tweet, tweeted);
+const getWeatherTweet = () => {
+  weather;
+  weatherInfoModel.find({},(err,info)=>{
+    if(err){
+      throw new Error('error getting data from db');
+    }else{
+      //console.log(info[info.length - 1]);
+      let tweet =  {status: 'Madrid, ' + info[info.length - 1].weather_description + ', ' + Math.floor(info[info.length - 1].temperature - 273) +
+      'º. T. max: ' + Math.floor(info[info.length - 1].temperature_max - 273)  + 'º, T. min ' + Math.floor(info[info.length - 1].temperature_min - 273) + 'º.'};
+
+      T.post('statuses/update', tweet, tweeted);
+
+     }
+  });
+};
+
+setInterval(getWeatherTweet, 1000*15);
