@@ -1,7 +1,7 @@
 /*jshint esversion:6*/
-const config = require('./config');
-const weatherInfoModel = require('./models/weatherInfo.model');
-const getWeather = require('./controllers/weather-info.controller');
+const config = require('../config');
+const weatherInfoModel = require('../models/weatherInfo.model');
+const getWeather = require('./weather-info.controller');
 
 const Twit = require('twit');
 const T = new Twit(config);
@@ -30,5 +30,7 @@ console.log(tweet);
   });
 };
 
-setInterval(getWeather,1000*30);
-setInterval(getWeatherTweet, 1000*60);
+module.exports.updateApp = () => {
+  setInterval(getWeather,1000*30);
+  setInterval(getWeatherTweet, 1000*60);
+};

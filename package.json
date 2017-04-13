@@ -1,25 +1,20 @@
 {
   "name": "twitter-weahter-bot",
-  "version": "1.0.0",
-  "description": "twitter weather bot",
-  "main": "bot.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node ./bot.js"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tommytrg/twitter-weather-bot.git"
-  },
-  "author": "tommytrg <tomastrg22@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Tommytrg/twitter-weather-bot/issues"
-  },
-  "homepage": "https://github.com/Tommytrg/twitter-weather-bot#readme",
   "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
     "dotenv": "^4.0.0",
-    "mongoose": "^4.9.4",
+    "express": "~4.14.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
     "request": "^2.81.0",
+    "serve-favicon": "^2.3.2",
     "twit": "^2.2.5"
   }
 }
