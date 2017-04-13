@@ -31,6 +31,6 @@ console.log(tweet);
 };
 
 module.exports.updateApp = () => {
-  setInterval(getWeather,1000*30);
-  setInterval(getWeatherTweet, 1000*60);
+  setInterval(getWeather,1000*60);
+  setInterval(getWeatherTweet, 1000*60*2);
 };
