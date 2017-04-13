@@ -2,7 +2,9 @@
 const weatherInfoModel = require('../models/weatherInfo.model');
 const request = require('request');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/twitter-weather-app');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI);
 
 const getWeatherInfoFromApi = (error, response, body) => {
   if(error){
@@ -30,7 +32,7 @@ const saveWeatherInfo = (data) => {
 };
 
 const getWeather = () => {
-  return request('http://api.openweathermap.org/data/2.5/weather?id=3117735&APPID=aa04432a0366e8e6600f565d1d1d6c41', getWeatherInfoFromApi);
+  return request('http://api.openweathermap.org/data/2.5/weather?id=3117735&APPID=' + process.env.WEATHER_API_KEY, getWeatherInfoFromApi);
 };
 
 module.exports = getWeather;
