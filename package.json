@@ -15,8 +15,8 @@
   "bugs": {
     "url": "https://github.com/Tommytrg/twitter-weather-bot/issues"
   },
-  "homepage": "https://github.com/Tommytrg/twitter-weather-bot#readme"
-  },
+  "homepage": "https://github.com/Tommytrg/twitter-weather-bot#readme",
+
   "dependencies": {
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
