@@ -4,22 +4,22 @@
   "description": "twitter weather bot",
   "main": "bot.js",
   "scripts": {
-      "start": "node ./bot.js"
+    "start": "node ./bot.js"
   },
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Tommytrg/twitter-weather-bot.git"
+    "type": "git",
+    "url": "git+https://github.com/Tommytrg/twitter-weather-bot.git"
   },
   "author": "tommytrg <tomastrg22@gmail.com>",
   "license": "MIT",
   "bugs": {
-      "url": "https://github.com/Tommytrg/twitter-weather-bot/issues"
+    "url": "https://github.com/Tommytrg/twitter-weather-bot/issues"
   },
   "homepage": "https://github.com/Tommytrg/twitter-weather-bot#readme",
-
   "dependencies": {
-      "mongoose": "^4.9.4",
-      "request": "^2.81.0",
-      "twit": "^2.2.5"
+    "dotenv": "^4.0.0",
+    "mongoose": "^4.9.4",
+    "request": "^2.81.0",
+    "twit": "^2.2.5"
   }
 }
