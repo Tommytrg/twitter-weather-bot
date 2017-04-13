@@ -1,8 +1,7 @@
 /*jshint esversion:6*/
-const request = require('request');
 const weatherInfoModel = require('../models/weatherInfo.model');
+const request = require('request');
 const mongoose = require('mongoose');
-
 mongoose.connect('mongodb://localhost/twitter-weather-app');
 
 const getWeatherInfoFromApi = (error, response, body) => {
@@ -30,6 +29,8 @@ const saveWeatherInfo = (data) => {
   });
 };
 
-const getWeather = request('http://api.openweathermap.org/data/2.5/weather?id=3117735&APPID=aa04432a0366e8e6600f565d1d1d6c41', getWeatherInfoFromApi);
+const getWeather = () => {
+  return request('http://api.openweathermap.org/data/2.5/weather?id=3117735&APPID=aa04432a0366e8e6600f565d1d1d6c41', getWeatherInfoFromApi);
+};
 
 module.exports = getWeather;

@@ -1,21 +1,15 @@
 /*jshint esversion:6*/
-const Twit = require('twit');
 const config = require('./config');
-console.log(config)
-const T = new Twit(config);
-const weather = require('./controllers/weather-info.controller');
 const weatherInfoModel = require('./models/weatherInfo.model');
+const getWeather = require('./controllers/weather-info.controller');
 
+const Twit = require('twit');
+const T = new Twit(config);
 require('dotenv').config();
 
-
-//T.get('search/tweets', params, gotData);
-
-
-
 const tweeted = (err, data, response) => {
-console.log(err)
   if(err){
+    console.log(err);
     throw new Error('ERROR tweeting in tweeted');
   }else{
     console.log('Tweet posted');
@@ -23,20 +17,20 @@ console.log(err)
 };
 
 const getWeatherTweet = () => {
-  weather;
-  
+  getWeather();
+
   weatherInfoModel.find({},(err,info)=>{
     if(err){
       throw new Error('error getting data from db');
     }else{
-      //console.log(info[info.length - 1]);
+      let time = new Date();
       let tweet =  {status: 'Madrid, ' + info[info.length - 1].weather_description + ', ' + Math.floor(info[info.length - 1].temperature - 273) +
-      'º. T. max: ' + Math.floor(info[info.length - 1].temperature_max - 273)  + 'º, T. min ' + Math.floor(info[info.length - 1].temperature_min - 273) + 'º.'};
-
+      'º. T. max: ' + Math.floor(info[info.length - 1].temperature_max - 273)  + 'º, T. min ' + Math.floor(info[info.length - 1].temperature_min - 273) + 'º. Time: ' + time.getHours() + ':' + time.getMinutes() + '.'};
+console.log(tweet);
       T.post('statuses/update', tweet, tweeted);
-
      }
   });
 };
 
-setInterval(getWeatherTweet, 1000*15);
+getWeatherTweet();
+setInterval(getWeatherTweet, 1000*60*60*3);
