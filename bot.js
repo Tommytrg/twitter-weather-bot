@@ -30,5 +30,5 @@ console.log(tweet);
   });
 };
 
-setInterval(getWeather,1000*60*3);
-setInterval(getWeatherTweet, 1000*60*60*5);
+setInterval(getWeather,1000*30);
+setInterval(getWeatherTweet, 1000*60);
