@@ -24,6 +24,7 @@ const getWeatherTweet = () => {
       throw new Error('error getting data from db');
     }else{
       let time = new Date();
+      console.log(info)
       let tweet =  {status: 'Madrid, ' + info[info.length - 1].weather_description + ', ' + Math.floor(info[info.length - 1].temperature - 273) +
       'º. T. max: ' + Math.floor(info[info.length - 1].temperature_max - 273)  + 'º, T. min ' + Math.floor(info[info.length - 1].temperature_min - 273) + 'º. Time: ' + time.getHours() + ':' + time.getMinutes() + '.'};
 console.log(tweet);
