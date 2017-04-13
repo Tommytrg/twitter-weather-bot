@@ -17,7 +17,6 @@ const tweeted = (err, data, response) => {
 };
 
 const getWeatherTweet = () => {
-
   weatherInfoModel.find({},(err,info)=>{
     if(err){
       throw new Error('error getting data from db');
